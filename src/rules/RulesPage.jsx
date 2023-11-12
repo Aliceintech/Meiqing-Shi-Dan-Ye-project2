@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../publicComponent/navbar';
+import Navbar from '../publicComponent/Navbar';
 
 const RulesPage = () => {
   return (
