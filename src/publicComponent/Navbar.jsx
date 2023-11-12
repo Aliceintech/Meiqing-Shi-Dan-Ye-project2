@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import './navbar.css';
 
 const Navbar = ({ showGameLink, showRulesLink }) => {
   return (
-    <nav className="Navbar">
+    <nav className="navbar">
       <Link to="/">Welcome</Link>
       {showGameLink && <Link to="/game">Play</Link>}
       {showRulesLink && <Link to="/rules">Rules</Link>}
