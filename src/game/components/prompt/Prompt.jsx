@@ -7,7 +7,7 @@ const Prompt = () => {
         submitStatus
     } = useGame();
 
-    let promptMessage = '😓';
+    let promptMessage = '😬';
 
     if (gameOver) {
         promptMessage = 'Game is over!';
@@ -24,8 +24,6 @@ const Prompt = () => {
         promptMessage = 'Word is invalid.';
     }
 
-
-    // Use promptMessage here, not hintMessage
     return <div className="prompt">{promptMessage}</div>;
 };
 

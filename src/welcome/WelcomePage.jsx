@@ -1,6 +1,5 @@
-// WelcomePage.js
 import React from 'react';
-import './welcome.css'; // 确保你的样式文件被正确导入
+import './welcome.css';
 
 const WelcomePage = () => {
   return (

@@ -1,5 +1,3 @@
-/* game.css */
-
 .game-page {
   display: flex;
   flex-direction: column;
@@ -16,23 +14,15 @@
   gap: 10px;
 }
 
-/* 响应式布局 */
 @media (max-width: 768px) {
   .cell, .key-cell {
-    width: 5vw; /* 使用视口宽度的百分比 */
-    height: 5vw; /* 使用视口宽度的百分比 */
-    font-size: 3vw; /* 调整字体大小适应小屏幕 */
+    width: 5vw;
+    height: 5vw;
+    font-size: 3vw;
   }
   
   .difficulty-button {
-    padding: 10px 5vw; /* 调整填充适应小屏幕 */
-    font-size: 3vw; /* 调整字体大小适应小屏幕 */
+    padding: 10px 5vw;
+    font-size: 3vw;
   }
 }
-
-/* 进一步的调整可能需要根据你的具体布局和设计需求来定 */
-
-
-
-
-

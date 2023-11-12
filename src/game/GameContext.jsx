@@ -60,7 +60,6 @@ export const GameProvider = ({ children }) => {
 
 
   useEffect(() => {
-    // 一旦guesses更新，更新带有线索的猜测
     const newGuessesWithClues = guesses.map((guess) => {
       return guess === answerWord
         ? { guess, clues: Array(guess.length).fill({ letter: guess, status: 'correct' }) }
@@ -97,7 +96,7 @@ export const GameProvider = ({ children }) => {
   const submitGuess = () => {
     if (gameOver) {
       console.log('Game is over.');
-      return; // 如果游戏结束，阻止进一步猜测
+      return;
     }
 
     if (currentGuess.length !== maxGuessLength) {
@@ -142,18 +141,15 @@ export const GameProvider = ({ children }) => {
     console.log("The answer word is:", answerWord);
   };
 
-/////////////////////////////////////////////
   const checkGuess = (guess, answerWord) => {
     const result = new Array(guess.length).fill(null);    const answerLetters = answerWord.split('');
     const guessLetters = guess.toLowerCase().split('');
   
-    // 创建一个记录答案单词中每个字母出现次数的对象
     const letterCount = answerLetters.reduce((acc, letter) => {
       acc[letter] = (acc[letter] || 0) + 1;
       return acc;
     }, {});
     console.log(answerLetters);
-    // 第一遍检查，标记位置正确的字母
     guessLetters.forEach((letter, i) => {
       console.log(i, answerLetters[i]);
 
@@ -165,10 +161,9 @@ export const GameProvider = ({ children }) => {
       }
     });
   
-    // 第二遍检查，标记位置错误但存在于答案中的字母
     guessLetters.forEach((letter, i) => {
 
-      if (result[i] !== null) return; // 跳过已经标记为正确的字母
+      if (result[i] !== null) return;
   
       if (letterCount[letter] > 0) {
         result[i] = { letter, status: 'present' };
@@ -180,12 +175,11 @@ export const GameProvider = ({ children }) => {
       }
     });
     
-    return result.filter(clue => clue !== null); // 过滤掉null值，只返回有状态的对象
+    return result.filter(clue => clue !== null);
   };
 
 
   const resetGame = () => {
-    // 重置状态到初始值
     setCurrentGuess('');
     setGuess([]);
     setValidWords([]);
@@ -195,7 +189,6 @@ export const GameProvider = ({ children }) => {
     setGuessesLeft(difficulty === 'hard' ? 5 : 6);
     setSubmitStatus('');
   
-    // 重新加载单词列表
     loadWordList(difficulty).then(words => {
       setValidWords(words);
       const randomIndex = Math.floor(Math.random() * words.length);
