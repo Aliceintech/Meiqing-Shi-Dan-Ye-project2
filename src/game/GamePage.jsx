@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGame } from './GameContext';
 import Board from './components/board/Board';
 import Keyboard from './components/keyboard/Keyboard';
-import Navbar from '../publicComponent/navbar';
+// import Navbar from '../publicComponent/navbar';
 import Prompt from './components/prompt/Prompt';
 import ResetGame from './components/reset/Reset';
 
@@ -20,7 +20,7 @@ const GamePage = () => {
 
   return (
     <div>
-      <Navbar showGameLink={false} showRulesLink={true} />
+      {/* <Navbar showGameLink={false} showRulesLink={true} /> */}
       <Prompt />
       <ResetGame />
 
